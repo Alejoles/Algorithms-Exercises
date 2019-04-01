@@ -27,18 +27,16 @@ public:
 	friend Racional operator-(Racional p, Racional q);
 	friend Racional operator*(Racional p, Racional q);
 	friend Racional operator/(Racional p, Racional q);
-	friend istream & operator>>(istream & is, Racional r);
-	friend ostream & operator<<(ostream & os, Racional r);
+	friend istream & operator>>(istream & is, Racional & r);
+	friend ostream & operator<<(ostream & os, Racional &r);
 	
 
 };
-ostream & operator<<(ostream & os,const Racional &r){
+ostream & operator<<(ostream & os, Racional &r){
 	return os << r.getNum() << "/" << r.getDen();
 }
 istream & operator>>(istream & is, Racional &r){
-	cout << "Ingrese el numerador: ";
 	is >> r.num;
-	cout << "Ingrese el denominador: ";
 	is >> r.deno;
 	
 	return is;
@@ -57,9 +55,8 @@ bool operator<(Racional &r, Racional &q){
 	return (r.getNum() * q.getNum()) < (r.getDen() * q.getDen());
 }
 bool operator==(Racional r, Racional q){
-	return (r.getNum() == q.getNum()) && (r.getDen() == q.getDen());
+	return (r.getNum()*q.getDen() == q.getNum()*r.getDen());
 }
-
 Racional operator/(Racional p, Racional q){
 	int num = p.getNum()*q.getDen();
 	int den = p.getDen()*q.getNum();
