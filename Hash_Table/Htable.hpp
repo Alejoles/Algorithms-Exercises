@@ -18,7 +18,7 @@ class hash_table {
 	void rehash();
 	unsigned hashing(const dataType &x) const;
 	
-	void checkrep() const;
+	void checkrep() const;	// recorrer la tabla y ver que hay en la tabla por elem e info(acti,del,empt), chequear el tamaño size = n_buckets etc...
 
 public:
 	hash_table();
