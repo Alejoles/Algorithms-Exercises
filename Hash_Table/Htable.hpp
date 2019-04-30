@@ -9,10 +9,7 @@ class hash_table {
 	struct bucket {
 		dataType elem;		// llave actual
 		bucket_type info;	// estado del bucket
-		bucket(const dataType &e, bucket_type i = Empty){
-			elem = e;
-			info = i;
-		}
+		bucket(const dataType &e, bucket_type i = Empty): elem{e}, info{i} {} //in-class inicialization
 	};
 
 	unsigned n_buckets;		// tamaño de la tabla
