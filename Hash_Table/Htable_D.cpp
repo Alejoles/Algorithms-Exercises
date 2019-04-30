@@ -7,14 +7,14 @@ using namespace std;
 template<>
 class hashFunction<int>{
 public:
-	unsigned operator()(const int &key){
+	size_t operator()(const int &key){
 		return static_cast<unsigned>(key);
 	}
 };
 
 int main(void){
 
-	/*const int min = -15, max = +15;
+	const int min = -15, max = +15;
 	random_device rd;
 	default_random_engine generator{rd()};
 	uniform_int_distribution<int> distribution(min, max);
@@ -42,7 +42,7 @@ int main(void){
 	for(int key = min; key < max ; ++key){
 		cout << "Find: " << key << " " << ht.search(key) << endl;
 	}
-	*/
+	
 	hash_table<int> a = hash_table<int>();
 	a.insert(4);
 	cout << a.search(4) << endl;
