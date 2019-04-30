@@ -17,6 +17,8 @@ class hash_table {
 
 	void rehash();
 	unsigned hashing(const dataType &x) const;
+	
+	void checkrep() const;
 
 public:
 	hash_table();
