@@ -2,6 +2,8 @@
 #define _Htable_hpp_
 #include <vector>
 
+template<typename data_type> class hashFunction;
+
 template<typename dataType>
 class hash_table {
 	enum bucket_type {Active, Empty , Deleted };

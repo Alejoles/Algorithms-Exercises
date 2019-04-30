@@ -5,8 +5,8 @@
 
 template<typename dataType>
 unsigned hash_table<dataType>::hashing(const dataType &x) const{
-	unsigned num = static_cast<unsigned>(x) % (this->n_buckets);
-	return num;
+	hashFunction<dataType> hashFunctor;
+	return hashFunctor(x)%this->n_buckets;
 }
 
 template<typename dataType>
