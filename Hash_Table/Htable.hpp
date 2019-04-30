@@ -9,10 +9,7 @@ class hash_table {
 	struct bucket {
 		dataType elem;		// llave actual
 		bucket_type info;	// estado del bucket
-		bucket(const dataType &e, bucket_type i = Empty){
-			elem = e;
-			info = i;
-		}
+		bucket(const dataType &e, bucket_type i = Empty): elem{e}, info{i} {} //in-class inicialization
 	};
 
 	unsigned n_buckets;		// tamaño de la tabla
@@ -20,6 +17,8 @@ class hash_table {
 
 	void rehash();
 	unsigned hashing(const dataType &x) const;
+	
+	void checkrep() const;	// recorrer la tabla y ver que hay en la tabla por elem e info(acti,del,empt), chequear el tamaño size = n_buckets etc...
 
 public:
 	hash_table();
