@@ -9,9 +9,29 @@ BinaryHeap<dataType>::BinaryHeap(int capacity){
 }
 
 template<typename dataType>
-void BinaryHeap<dataType>::percolateDown(int hole){
-	
+BinaryHeap<dataType>::BinaryHeap(const std::vector<dataType> &vec){
+	for(auto it = vec.cbegin; it!= vec.cend(); it++){
+		this->array.push_back(*it);
+	}
+	this->array.percolateDown(0);			// ni p idea
+}
 
+template<typename dataType>
+void BinaryHeap<dataType>::percolateDown(int hole){
+	unsigned left = 2*hole;
+	unsigned right = 2*hole+1;
+	int small = hole;
+	if(this->count > left && array[left] < array[hole]){
+		small = left;
+	}
+	
+	else if(this->count > right && array[right] < array[hole]){
+		small = right;
+	}
+	if(small != hole){
+		std::swap(array[hole], array[small]);
+		percolateDown(array[small]);
+	}
 }
 
 template<typename dataType>
@@ -51,6 +71,8 @@ void BinaryHeap<dataType>::deleteMin(){
 		std::cout << "Can't use delete in an empty array" << std::endl;
 	}
 	else{
+		array.erase(array.begin());
+		percolateDown(0);
 		count--;
 		
 	}
@@ -72,7 +94,8 @@ void BinaryHeap<dataType>::display()const{
 	for(auto it = this->array.cbegin(); it != this->array.cend(); it++){
 		std::cout << *it << ",";
 	}
-	std::cout << "]";
+	std::cout << "]\n";
+	
 }
 
 

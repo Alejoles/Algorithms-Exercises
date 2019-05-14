@@ -8,7 +8,7 @@ template <typename dataType>
 class BinaryHeap {
 public:
 	BinaryHeap(int capacity = 100); //?
-	BinaryHeap(const std::vector<dataType> &vec);//?
+	BinaryHeap(const std::vector<dataType> &vec);
 	
 	const dataType & findMin() const;
 	void insert(const dataType &elem);
